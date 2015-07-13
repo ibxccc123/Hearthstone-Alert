@@ -35,28 +35,25 @@ public class Driver {
 		button3.addActionListener(new Events());
 		frame.add(button3);
 		
-		
-		Secret freezing = new Secret();
-		Secret explosive = new Secret();
-		Secret snipe = new Secret();
-		Secret misdirection = new Secret();
-		Secret snake = new Secret();
-		
-		Secret duplicate = new Secret();
-		Secret ice_barrier = new Secret();
-		Secret mirror_entity = new Secret();
-		Secret counterspell = new Secret();
-		Secret vaporize = new Secret();
-		Secret ice_block = new Secret();
-		Secret spellbender = new Secret();
-		
-		Secret avenge = new Secret();
-		Secret eye = new Secret();
-		Secret noble_sacrifice = new Secret();
-		Secret redemption = new Secret();
-		Secret repentance = new Secret();
-		
-	
-
-	}
+		//cancer
+		Secret freezing = new Secret(true,true,false,false,false,false,false,false,false,false,false);
+		Secret explosive = new Secret(false,true,false,true,false,false,false,false,false,false,false);
+		Secret snipe = new Secret(false,false,false,false,true,false,false,false,false,false,false);
+		Secret misdirection = new Secret(false,true,false,true,false,false,false,false,false,false,false);
+		Secret snake = new Secret(true,false,true,false,false,false,false,false,false,false,false);
+		// mage
+		Secret duplicate = new Secret(false,false,false,false,false,true,false,false,false,false,false);
+		Secret ice_barrier = new Secret(false,true,false,true,false,false,false,false,false,false,false);
+		Secret mirror_entity = new Secret(false,false,false,false,true,false,false,false,false,false,false);
+		Secret counterspell = new Secret(false,false,false,false,false,false,false,false,true,false,false);
+		Secret vaporize = new Secret(false,true,false,false,false,false,false,false,false,false,false);
+		Secret ice_block = new Secret(false,false,false,false,false,false,true,false,false,false,false);
+		Secret spellbender = new Secret(false,false,false,false,false,false,false,false,false,true,false);
+		// paladin
+		Secret avenge = new Secret(false,false,false,false,false,false,false,true,false,false,false);
+		Secret eye = new Secret(false,true,false,true,false,false,false,false,false,false,true);
+		Secret noble_sacrifice = new Secret(true,true,true,true,false,false,false,false,false,false,false);
+		Secret redemption = new Secret(false,false,false,false,false,true,false,false,false,false,false);
+		Secret repentance = new Secret(false,false,false,false,true,false,false,false,false,false,false);
+			}
 }
