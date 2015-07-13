@@ -16,6 +16,13 @@ public class MageEvent implements ActionListener {
 		frame.pack();
 		frame.setVisible(true);
 		frame.setBounds(i*100, i*100, 250, 50);
+		Secret duplicate = new Secret(false,false,false,false,false,true,false,false,false,false,false);
+		Secret ice_barrier = new Secret(false,true,false,true,false,false,false,false,false,false,false);
+		Secret mirror_entity = new Secret(false,false,false,false,true,false,false,false,false,false,false);
+		Secret counterspell = new Secret(false,false,false,false,false,false,false,false,true,false,false);
+		Secret vaporize = new Secret(false,true,false,false,false,false,false,false,false,false,false);
+		Secret ice_block = new Secret(false,false,false,false,false,false,true,false,false,false,false);
+		Secret spellbender = new Secret(false,false,false,false,false,false,false,false,false,true,false);
 		}
 	}
 	
