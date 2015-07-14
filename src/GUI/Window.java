@@ -25,12 +25,13 @@ public class Window {
 		frame.setVisible(true);
 		frame.setSize(700, 600);
 		
-		/* Instead of having three event classes, they are all compressed below.
-		 * Reason for this: I'm not sure how to pass the JFrame down to the Event classes
-		 * that we created before.  We'll expand each actionPerformed to do its full job here,
-		 * in the Window class.
+		/* moved all lines where the Secrets are instantiated to SecretArray.java
+		 * Instead the actionlisteners just create new SecretArrays
 		 * 
-		 * Right now, all they do is resize the windows when clicked on.
+		 * Also made it so the actionlisteners get rid of all buttons 
+		 * should work properly
+		 * We should discuss if we are making the loops in the actionlisteners or if the ALs call another function next
+		 * 
 		 */
 		
 		JButton hunterButton = new JButton("Hunter");

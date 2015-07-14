@@ -2,7 +2,10 @@ package GUI;
 
 public class SecretArray {
 
-	// hunter is 1. mage is 2. palladin is 3.
+	/* hunter is 1
+	 * mage is 2
+	 * palladin is 3
+	 */
 	SecretArray(int classnum){
 		switch(classnum){
 		case 1:
@@ -52,6 +55,7 @@ public class SecretArray {
     		pallyarray[3] = redemption;
     		pallyarray[4] = repentance;
     		break;
+    		// default should never occur and might be obsolete
 		default:
 			break;
 			
