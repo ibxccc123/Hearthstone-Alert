@@ -36,11 +36,7 @@ public class Window {
 		JButton hunterButton = new JButton("Hunter");
 		hunterButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-        		Secret freezing = new Secret(true,true,false,false,false,false,false,false,false,false,false);
-        		Secret explosive = new Secret(false,true,false,true,false,false,false,false,false,false,false);
-        		Secret snipe = new Secret(false,false,false,false,true,false,false,false,false,false,false);
-        		Secret misdirection = new Secret(false,true,false,true,false,false,false,false,false,false,false);
-        		Secret snake = new Secret(true,false,true,false,false,false,false,false,false,false,false);
+            	SecretArray myHunterSecret = new SecretArray(1);
             	frame.setSize(200, 200);
             	frame.getContentPane().removeAll();
             }
@@ -50,13 +46,7 @@ public class Window {
 		JButton mageButton = new JButton("Mage");
 		mageButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-            	Secret duplicate = new Secret(false,false,false,false,false,true,false,false,false,false,false);
-        		Secret ice_barrier = new Secret(false,true,false,true,false,false,false,false,false,false,false);
-        		Secret mirror_entity = new Secret(false,false,false,false,true,false,false,false,false,false,false);
-        		Secret counterspell = new Secret(false,false,false,false,false,false,false,false,true,false,false);
-        		Secret vaporize = new Secret(false,true,false,false,false,false,false,false,false,false,false);
-        		Secret ice_block = new Secret(false,false,false,false,false,false,true,false,false,false,false);
-        		Secret spellbender = new Secret(false,false,false,false,false,false,false,false,false,true,false);
+            	SecretArray myMageSecret = new SecretArray(2);
             	frame.setSize(200, 200);
             	frame.getContentPane().removeAll();
             }
@@ -66,11 +56,7 @@ public class Window {
 		JButton pallyButton = new JButton("Paladin");
 		pallyButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-            	Secret avenge = new Secret(false,false,false,false,false,false,false,true,false,false,false);
-        		Secret eye = new Secret(false,true,false,true,false,false,false,false,false,false,true);
-        		Secret noble_sacrifice = new Secret(true,true,true,true,false,false,false,false,false,false,false);
-        		Secret redemption = new Secret(false,false,false,false,false,true,false,false,false,false,false);
-        		Secret repentance = new Secret(false,false,false,false,true,false,false,false,false,false,false);
+            	SecretArray myPallySecret = new SecretArray(3);
             	frame.setSize(200, 200);
             	frame.getContentPane().removeAll();
             }
