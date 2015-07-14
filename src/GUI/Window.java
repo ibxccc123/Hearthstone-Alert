@@ -42,6 +42,7 @@ public class Window {
         		Secret misdirection = new Secret(false,true,false,true,false,false,false,false,false,false,false);
         		Secret snake = new Secret(true,false,true,false,false,false,false,false,false,false,false);
             	frame.setSize(200, 200);
+            	frame.getContentPane().removeAll();
             }
         });
 		panel1.add(hunterButton);
@@ -57,6 +58,7 @@ public class Window {
         		Secret ice_block = new Secret(false,false,false,false,false,false,true,false,false,false,false);
         		Secret spellbender = new Secret(false,false,false,false,false,false,false,false,false,true,false);
             	frame.setSize(200, 200);
+            	frame.getContentPane().removeAll();
             }
         });
 		panel2.add(mageButton);
@@ -70,6 +72,7 @@ public class Window {
         		Secret redemption = new Secret(false,false,false,false,false,true,false,false,false,false,false);
         		Secret repentance = new Secret(false,false,false,false,true,false,false,false,false,false,false);
             	frame.setSize(200, 200);
+            	frame.getContentPane().removeAll();
             }
         });
 		panel3.add(pallyButton);
