@@ -2,17 +2,9 @@ package GUI;
 
 public class Secret {
 
-	public Boolean trigger1;
-	public Boolean trigger2;
-	public Boolean trigger3;
-	public Boolean trigger4;
-	public Boolean trigger5;
-	public Boolean trigger6;
-	public Boolean trigger7;
-	public Boolean trigger8;
-	public Boolean trigger9;
-	public Boolean trigger10;
-	public Boolean trigger11;
+	//Changed it to conserve room
+	public Boolean trigger1, trigger2, trigger3, trigger4, trigger5, trigger6,
+    trigger7, trigger8, trigger9, trigger10, trigger11;
 
 	Secret( Boolean t1, Boolean t2, Boolean t3, Boolean t4, Boolean t5, Boolean t6, Boolean t7, Boolean t8, Boolean t9, Boolean t10, Boolean t11){
 			this.trigger1 = t1;
