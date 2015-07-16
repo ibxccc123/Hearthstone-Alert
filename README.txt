@@ -1,3 +1,4 @@
+1	M->EM2 	M - > EH3	H - > EM4	H - >EH5	MS6	EM = X7	EH = X8	EM = X && EM9	S10	S -> EM11	S ->EH
 Triggers:
 
 Hunter:

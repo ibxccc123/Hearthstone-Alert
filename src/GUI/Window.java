@@ -32,6 +32,8 @@ public class Window {
 		 * should work properly
 		 * We should discuss if we are making the loops in the actionlisteners or if the ALs call another function next
 		 * 
+		 * If we are implementing an "Add Secret" function the ALs for Class choosing should not create a SecretArray and
+		 * should instead just enter a new window where a "Add Secret" button exists.
 		 */
 		
 		JButton hunterButton = new JButton("Hunter");
