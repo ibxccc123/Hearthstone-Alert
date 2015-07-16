@@ -24,7 +24,8 @@ public class SecretArray {
     		hunterarray[1] = explosive;
     		hunterarray[2] = snipe;
     		hunterarray[3] = misdirection;
-    		hunterarray[4] = snake;
+    		hunterarray[4] = snake;  		
+    		
     		break;
 		case 2:
 			magearray = new Secret[7];
@@ -63,37 +64,44 @@ public class SecretArray {
 		}
 		
 	}
-	public String ReturnArray(SecretArray sa, int classnum){
+	public String returnArray(SecretArray sa, int classnum){
 		String s;
 		s = new String();
 		
 		switch(classnum){
 		case 1:
-			for(int i = 0; i > 5; i++){
+			for(int i = 0; i < 5; i++){
 				if (sa.hunterarray[i].isValid()){
-					s = s + " " + hunterarray[i].getSecretName();
-				}
+					s = s + " " + sa.hunterarray[i].getSecretName();
 
-					
+				}			
 				
 			}
 			break;
 		case 2:
-			for(int i = 0; i > 7; i++){
+			for(int i = 0; i < 7; i++){
 				if(sa.magearray[i].isValid()){
 					s = s + " " + magearray[i].getSecretName();
 				}
 			}
 			break;
 		case 3:
-			for(int i = 0; i > 5; i++){
+			for(int i = 0; i < 5; i++){
 				if(sa.pallyarray[i].isValid()){
 					s = s + " " + pallyarray[i].getSecretName();
 				}
 			}
 			
 		}
+
 		return s;
+	}
+	
+	public void remove(SecretArray sa){
+		
+		sa.hunterarray[0].setToFalse();
+		
+		
 	}
 	
 	
