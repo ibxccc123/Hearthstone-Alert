@@ -195,21 +195,26 @@ public class Window {
 				if(secrets.hunterarray[i].TriggerArray[trigger]){
 					secrets.remove(secrets, trigger);
 				}
+				
 			}
+			break;
 		//mage
 		case 2:
 			for(int i = 0; i < 7; i++){
-				//if(secrets.magearray[i].TriggerArray[trigger]){
-					//secrets.remove(secrets, trigger);
-				//}
+				if(secrets.magearray[i].TriggerArray[trigger]){
+					secrets.remove(secrets, trigger);
 			}
+				
+			}
+			break;
 		//paladin
 		case 3:
 			for(int i = 0; i < 5; i++){
-				//if(secrets.pallyarray[i].TriggerArray[trigger]){
-					//secrets.remove(secrets, trigger);
-				//}
+				if(secrets.pallyarray[i].TriggerArray[trigger]){
+					secrets.remove(secrets, trigger);
+				}
 			}
+			break;
 			
 
 		}
