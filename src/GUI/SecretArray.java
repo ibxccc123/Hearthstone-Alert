@@ -97,10 +97,17 @@ public class SecretArray {
 		return s;
 	}
 	
-	public void remove(SecretArray sa, int spot){
+	public void remove(SecretArray sa, int spot, int secretType){
 		
+		if(secretType == 1){
 		sa.hunterarray[spot].setToFalse();
-		
+		}
+		else if(secretType == 2){
+		sa.magearray[spot].setToFalse();
+		}
+		else if(secretType == 3){
+		sa.pallyarray[spot].setToFalse();
+		}
 		
 	}
 	
