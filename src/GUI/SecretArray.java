@@ -8,7 +8,7 @@ public class SecretArray {
 	
 	/* hunter is 1
 	 * mage is 2
-	 * palladin is 3
+	 * paladin is 3
 	 */
 	SecretArray(int classnum){
 		switch(classnum){
@@ -64,6 +64,8 @@ public class SecretArray {
 		}
 		
 	}
+	
+	//Fixed formatting for this by adding commas
 	public String returnArray(SecretArray sa, int classnum){
 		String s;
 		s = new String();
@@ -71,24 +73,34 @@ public class SecretArray {
 		switch(classnum){
 		case 1:
 			for(int i = 0; i < 5; i++){
-				if (sa.hunterarray[i].isValid()){
-					s = s + " " + sa.hunterarray[i].getSecretName();
-
+				if (sa.hunterarray[i].isValid() && s.isEmpty()){
+					s = sa.hunterarray[i].getSecretName();
 				}			
+				else if(sa.hunterarray[i].isValid()){
+					s = s + " , " + sa.hunterarray[i].getSecretName();
+				}
 				
 			}
 			break;
+			
 		case 2:
 			for(int i = 0; i < 7; i++){
-				if(sa.magearray[i].isValid()){
-					s = s + " " + magearray[i].getSecretName();
+				if (sa.magearray[i].isValid() && s.isEmpty()){
+					s = sa.magearray[i].getSecretName();
+				}			
+				else if(sa.magearray[i].isValid()){
+					s = s + " , " + sa.magearray[i].getSecretName();
 				}
 			}
 			break;
+			
 		case 3:
 			for(int i = 0; i < 5; i++){
-				if(sa.pallyarray[i].isValid()){
-					s = s + " " + pallyarray[i].getSecretName();
+				if (sa.pallyarray[i].isValid() && s.isEmpty()){
+					s = sa.pallyarray[i].getSecretName();
+				}			
+				else if(sa.pallyarray[i].isValid()){
+					s = s + " , " + sa.pallyarray[i].getSecretName();
 				}
 			}
 			

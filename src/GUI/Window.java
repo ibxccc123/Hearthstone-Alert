@@ -1,7 +1,6 @@
 package GUI;
 
 import java.awt.BorderLayout;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BoxLayout;
@@ -24,23 +23,18 @@ public class Window {
 		frame.add(panel3);
 		//App will exit on closing the window.
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.pack();
 		frame.setVisible(true);
-		frame.setSize(400, 400);
+		frame.setSize(200, 400);
+		
 		
 		/* moved all lines where the Secrets are instantiated to SecretArray.java
 		 * Instead the actionlisteners just create new SecretArrays
-		 * 
-		 * Also made it so the actionlisteners get rid of all buttons 
-		 * should work properly
-		 * We should discuss if we are making the loops in the actionlisteners or if the ALs call another function next
 		 * 
 		 */
 	
 		JButton hunterButton = new JButton("Hunter");
 		hunterButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-            	frame.setSize(400, 500);
             	SecretArray myHunterSecret = new SecretArray(1);
             	rework(frame, myHunterSecret, 1);     	
             }
@@ -48,7 +42,6 @@ public class Window {
 		JButton mageButton = new JButton("Mage");
 		mageButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-            	frame.setSize(400, 500);
             	SecretArray myMageSecret = new SecretArray(2);
             	rework(frame, myMageSecret, 2);     	
             }
@@ -56,7 +49,6 @@ public class Window {
 		JButton pallyButton = new JButton("Paladin");
 		pallyButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-            	frame.setSize(400, 500);
             	SecretArray myPallySecret = new SecretArray(3);
             	rework(frame, myPallySecret, 3);     	
             }
@@ -66,18 +58,19 @@ public class Window {
 		panel2.add(mageButton);
 		panel3.add(pallyButton);
 		//Adds the buttons to the JFrame, with the panels they're each in.
-		frame.setLayout(new GridLayout(2, 2));
+		frame.setLayout(new BoxLayout(frame.getContentPane(),BoxLayout.Y_AXIS));
 		frame.getContentPane().add(panel1, BorderLayout.CENTER);
 		frame.getContentPane().add(panel2, BorderLayout.LINE_START);
 		frame.getContentPane().add(panel3, BorderLayout.LINE_END);	
 		
+		
 	}
 	
-	//Method that will loop upon itself to refresh the window every time it's called
 	//Should remove elements of SecretArray every time a button is pressed
 	//Define buttons' ActionListeners in here, or through another method
 	public void rework(final JFrame frame, final SecretArray secrets, final int secretType){
 		
+	 	frame.setSize(600, 500);
     	frame.getContentPane().removeAll();
     	JPanel[] panelArray = new JPanel[20]; 
     	JButton[] buttonArray = new JButton[20];
@@ -86,106 +79,110 @@ public class Window {
     		buttonArray[i] = new JButton();
     		panelArray[i].add(buttonArray[i]);
     	}
+		
+		panelArray[11] = new JPanel();
+		final JLabel secretText = new JLabel(secrets.returnArray(secrets,secretType));
+		panelArray[11].add(secretText);
+		
+		panelArray[12] = new JPanel();
+		buttonArray[12] = new JButton("Reset");
+		panelArray[12].add(buttonArray[12]);
     	
     	
     	//ButtonArray populated with Action Listeners.
    		buttonArray[0].setText("Minion Attacks Enemy Minion");
 		buttonArray[0].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
-				eliminateSecrets(0, frame, secrets, secretType);
+				eliminateSecrets(0, frame, secrets, secretType, secretText);
 			}
 		});
 		buttonArray[1].setText("Minion Attacks Enemy Hero");
 		buttonArray[1].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
-				eliminateSecrets(1, frame, secrets, secretType);
+				eliminateSecrets(1, frame, secrets, secretType, secretText);
 			}
 		});
 		buttonArray[2].setText("Hero Attacks Enemy Minion");
 		buttonArray[2].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
-				eliminateSecrets(2, frame, secrets, secretType);
+				eliminateSecrets(2, frame, secrets, secretType, secretText);
 			}
 		});
 		buttonArray[3].setText("Hero Attacks Enemy Hero");
 		buttonArray[3].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
-				eliminateSecrets(3, frame, secrets, secretType);
+				eliminateSecrets(3, frame, secrets, secretType, secretText);
 			}
 		});
 		buttonArray[4].setText("Minion is Summoned");
 		buttonArray[4].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
-				eliminateSecrets(4, frame, secrets, secretType);
+				eliminateSecrets(4, frame, secrets, secretType, secretText);
 			}
 		});
 		buttonArray[5].setText("Enemy Minion Dies");
 		buttonArray[5].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
-				eliminateSecrets(5, frame, secrets, secretType);
+				eliminateSecrets(5, frame, secrets, secretType, secretText);
 			}
 		});
 		buttonArray[6].setText("Enemy Hero Dies");
 		buttonArray[6].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
-				eliminateSecrets(6, frame, secrets, secretType);
+				eliminateSecrets(6, frame, secrets, secretType, secretText);
 			}
 		});
 		buttonArray[7].setText("Enemy Minion Dies with Enemy Minion Left on the Board");
 		buttonArray[7].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
-				eliminateSecrets(7, frame, secrets, secretType);
+				eliminateSecrets(7, frame, secrets, secretType, secretText);
 			}
 		});
 		buttonArray[8].setText("Spell Cast");
 		buttonArray[8].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
-				eliminateSecrets(8, frame, secrets, secretType);
+				eliminateSecrets(8, frame, secrets, secretType, secretText);
 			}
 		});
 		buttonArray[9].setText("Spell Cast on Enemy Minion");
 		buttonArray[9].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
-				eliminateSecrets(9, frame, secrets, secretType);
+				eliminateSecrets(9, frame, secrets, secretType, secretText);
 			}
 		});
 		buttonArray[10].setText("Spell Cast on Enemy Hero");
 		buttonArray[10].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
-				eliminateSecrets(10, frame, secrets, secretType);
+				eliminateSecrets(10, frame, secrets, secretType, secretText);
 			}
 		});
-
 		
-		panelArray[11] = new JPanel();
-		buttonArray[11] = new JButton("Opponent Played New Secret on Board");
-		panelArray[11].add(buttonArray[11]);
+		//Reset Button
+		buttonArray[12].addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e){
+				SecretArray newSecretArray = new SecretArray(secretType);
+				rework(frame, newSecretArray, secretType);
+			}
+		});
 		
 		
 		frame.setLayout(new BoxLayout(frame.getContentPane(),BoxLayout.Y_AXIS));
-		for(int i=0; i<12; i++){
+		for(int i=0; i<13; i++){
 			panelArray[i].setBounds(50,50,100, i*70);
 			frame.add(panelArray[i]);
 		}       
+		frame.pack();
 		
 	}
 	
 	
-	
-	public void eliminateSecrets(int trigger, JFrame frame, SecretArray secrets, int secretType){
+	//Got rid of TriggerCheck, placed it in here and SecretArray is printed out in JLabel
+	public void eliminateSecrets(int trigger, JFrame frame, SecretArray secrets, int secretType, 
+			JLabel secretText){
 		
-		triggerchecker(trigger,secrets,secretType);
-		String s = secrets.returnArray(secrets, secretType);
-		System.out.println(s);
+		String text;  //Text for secrets
+		String finale = "The secret has been activated.";
 		
-		
-	/*
-	 * currently the triggerchecker isn't working for mage and paladin. commenting out anything related to mage and paladin 
-	 * makes the code work at least for hunter. 
-	 * I will figure out what is going on Jul 23 when i wake.	
-	 */
-	}
-	public void triggerchecker(int trigger,SecretArray secrets,int secretType){
 		switch(secretType){
 		//hunter
 		case 1:
@@ -193,30 +190,52 @@ public class Window {
 				if(secrets.hunterarray[i].TriggerArray[trigger]){
 					secrets.remove(secrets, i, 1);
 				}
-				
+			}
+			text = secrets.returnArray(secrets, secretType);
+			if(text.isEmpty()){
+				secretText.setText(finale);
+			}
+			else{
+				secretText.setText(secrets.returnArray(secrets, secretType));
 			}
 			break;
+			
 		//mage
 		case 2:
 			for(int i = 0; i < 7; i++){
 				if(secrets.magearray[i].TriggerArray[trigger]){
 					secrets.remove(secrets, i, 2);
+				}
 			}
-				
+			text = secrets.returnArray(secrets, secretType);
+			if(text.isEmpty()){
+				secretText.setText(finale);
+			}
+			else{
+				secretText.setText(secrets.returnArray(secrets, secretType));
 			}
 			break;
+			
 		//paladin
 		case 3:
 			for(int i = 0; i < 5; i++){
 				if(secrets.pallyarray[i].TriggerArray[trigger]){
 					secrets.remove(secrets, i, 3);
-				}
+				}	
+			}
+			text = secrets.returnArray(secrets, secretType);
+			if(text.isEmpty()){
+				secretText.setText(finale);
+			}
+			else{
+				secretText.setText(secrets.returnArray(secrets, secretType));
 			}
 			break;
 			
 
 		}
-		
 	}
-	
+		
 }
+	
+
