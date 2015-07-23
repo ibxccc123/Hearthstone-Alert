@@ -171,14 +171,48 @@ public class Window {
 	}
 	
 	
-	//Placeholder test
+	
 	public void eliminateSecrets(int trigger, JFrame frame, SecretArray secrets, int secretType){
 		
-		secrets.remove(secrets);
+		triggerchecker(trigger,secrets,secretType);
 		String s = secrets.returnArray(secrets, secretType);
 		System.out.println(s);
 		
 		
+	/*
+	 * currently the triggerchecker isn't working for mage and paladin. commenting out anything related to mage and paladin 
+	 * makes the code work at least for hunter. 
+	 * I will figure out what is going on Jul 23 when i wake.	
+	 */
+	}
+	public void triggerchecker(int trigger,SecretArray secrets,int secretType){
+		System.out.println(secretType);
+		switch(secretType){
+		//hunter
+		case 1:
+			for(int i = 0; i < 5; i++){
+
+				if(secrets.hunterarray[i].TriggerArray[trigger]){
+					secrets.remove(secrets, trigger);
+				}
+			}
+		//mage
+		case 2:
+			for(int i = 0; i < 7; i++){
+				//if(secrets.magearray[i].TriggerArray[trigger]){
+					//secrets.remove(secrets, trigger);
+				//}
+			}
+		//paladin
+		case 3:
+			for(int i = 0; i < 5; i++){
+				//if(secrets.pallyarray[i].TriggerArray[trigger]){
+					//secrets.remove(secrets, trigger);
+				//}
+			}
+			
+
+		}
 		
 	}
 	

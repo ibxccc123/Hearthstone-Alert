@@ -97,9 +97,9 @@ public class SecretArray {
 		return s;
 	}
 	
-	public void remove(SecretArray sa){
+	public void remove(SecretArray sa, int spot){
 		
-		sa.hunterarray[0].setToFalse();
+		sa.hunterarray[spot].setToFalse();
 		
 		
 	}
