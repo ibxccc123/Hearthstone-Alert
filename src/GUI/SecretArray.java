@@ -29,7 +29,7 @@ public class SecretArray {
     		break;
 		case 2:
 			magearray = new Secret[7];
-        	Secret duplicate = new Secret("Duplicate", false,false,false,false,false,true,false,false,false,false,false);
+        	Secret duplicate = new Secret("Duplicate", false,false,false,false,false,true,false,true,false,false,false);
     		Secret ice_barrier = new Secret("Ice Barrier", false,true,false,true,false,false,false,false,false,false,false);
     		Secret mirror_entity = new Secret("Mirror Entity", false,false,false,false,true,false,false,false,false,false,false);
     		Secret counterspell = new Secret("CounterSpell", false,false,false,false,false,false,false,false,true,true,true);
@@ -49,7 +49,7 @@ public class SecretArray {
         	Secret avenge = new Secret("Avenge", false,false,false,false,false,false,false,true,false,false,false);
     		Secret eye = new Secret("Eye for an Eye", false,true,false,true,false,false,false,false,false,false,true);
     		Secret noble_sacrifice = new Secret("Noble Sacrifice", true,true,true,true,false,false,false,false,false,false,false);
-    		Secret redemption = new Secret("Redemption", false,false,false,false,false,true,false,false,false,false,false);
+    		Secret redemption = new Secret("Redemption", false,false,false,false,false,true,false,true,false,false,false);
     		Secret repentance = new Secret("Repentance", false,false,false,false,true,false,false,false,false,false,false);
     		pallyarray[0] = avenge;
     		pallyarray[1] = eye;
