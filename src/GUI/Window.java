@@ -27,7 +27,7 @@ public class Window {
 		frame.setSize(200, 400);
 		
 		//Initial Class Choice
-		//The first cell of secrets[] is the first secret
+		//The first cell of secrets[] is always the first secret
 		JButton hunterButton = new JButton("Hunter");
 		hunterButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
@@ -179,7 +179,7 @@ public class Window {
 		//Reset Button
 		buttonArray[12].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
-				SecretArray[] secrets = new SecretArray[3];
+				SecretArray[] secrets = new SecretArray[5];
             	secrets[0] = new SecretArray(secretType);
             	rework(frame, secrets, secretType);
 			}
@@ -256,8 +256,16 @@ public class Window {
 		}
 	}	
 	
+	//Adds a new secret to secrets and sets its corresponding JLabel in secretLabels 
 	public void addSecret(SecretArray[] secrets, int secretType, JLabel[] secretLabels){
-
+		for(int i=0; i<5; i++){
+			if(secretLabels[i].getText() == "---"){
+				SecretArray newSecret = new SecretArray(secretType);
+				secretLabels[i].setText(newSecret.returnArray(newSecret,secretType));
+				secrets[i] = newSecret;
+				break;
+			}
+		}
 		
 	}
 }
