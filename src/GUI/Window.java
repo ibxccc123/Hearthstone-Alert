@@ -61,8 +61,7 @@ public class Window {
 		frame.getContentPane().add(panel1, BorderLayout.CENTER);
 		frame.getContentPane().add(panel2, BorderLayout.LINE_START);
 		frame.getContentPane().add(panel3, BorderLayout.LINE_END);	
-		
-		
+
 	}
 	
 	//rework() takes in arguments for an array of SecretArrays(five in total), the JFrame, and class
@@ -87,8 +86,13 @@ public class Window {
 		panelArray[11].add(secretText);
 		
 		for(int i=1; i<5; i++){  //Adding in all of the JLabels for Secrets to panelArray
-			secretLabels[i] = new JLabel("---");
-			panelArray[i+11] = new JPanel();
+			//"---" means that the secret has not been added yet and this string is used 
+			//as a check for whether or not the secret is valid (these checks in eliminateSecrets()
+			//can and should be improved upon as to check for the secret regardless of what its 
+			//corresponding JLabel in secretLabels is set to
+			secretLabels[i] = new JLabel("---");  
+			//The secrets' JLabels take space directly after the trigger buttons
+			panelArray[i+11] = new JPanel();  
 			panelArray[i+11].add(secretLabels[i]);
 		}
 		
@@ -185,7 +189,7 @@ public class Window {
 			}
 		});
 		
-		//Adds in all of the JPanels to the JWindow
+		//Adds in all of the 18 JPanels to the JWindow
 		frame.setLayout(new BoxLayout(frame.getContentPane(),BoxLayout.Y_AXIS));
 		for(int i=0; i<18; i++){
 			panelArray[i].setBounds(50,50,100, i*70);
@@ -198,7 +202,14 @@ public class Window {
 	
 	
 	//Got rid of TriggerCheck, placed it in here and SecretArray is printed out in JLabels
-	//Need to edit for eliminate secrets from multiple SecretArrays in secrets
+	//Most code: Looping through secretLabels/secrets and ensuring no null pointer errors
+	
+	//If secrets' secretArray is empty/its corresponding JLabel in secretLabels is "---", 
+	//then eliminateSecrets ignores removing secrets from that cell and this prevents possible
+	//null pointer errors.
+	
+	//eliminateSecrets takes in the trigger, the JFrame window, and the array of SecretArrays(5)
+	//and the array of JLabels(5)
 	public void eliminateSecrets(int trigger, JFrame frame, SecretArray[] secrets, int secretType, 
 			JLabel[] secretLabels){
 		
@@ -208,62 +219,102 @@ public class Window {
 		switch(secretType){
 		//hunter
 		case 1:
-			for(int i = 0; i < 5; i++){
-				if(secrets[0].hunterarray[i].TriggerArray[trigger]){
-					secrets[0].remove(secrets[0], i, 1);
+			//Removes the secrets from secrets' secretarrays if they are already set/valid
+			for(int i=0; i<5; i++){ //5 secretarrays in secrets
+				for(int j=0; j<5;j++){  //5 secrets in secretarray for hunter
+					if(!(secretLabels[i].getText().equals("---"))){ //If secretLabel's label is set
+						if(secrets[i].hunterarray[j].TriggerArray[trigger]){ //If secret's trigger is true
+							secrets[i].remove(secrets[i], j, 1);  //1 for hunter
+						}						
+					}
 				}
 			}
-			text = secrets[0].returnArray(secrets[0], secretType);
-			if(text.isEmpty()){
-				secretLabels[0].setText(finale);
-			}
-			else{
-				secretLabels[0].setText(secrets[0].returnArray(secrets[0], secretType));
+			//Sets the text for the JLabels in secretLabels
+			for(int i=0; i<5; i++){ //5 secretarrays and 5 secretLabels
+				if(!(secretLabels[i].getText().equals("---"))){ 
+					//If the secret's corresponding's JLabel is set
+					text = secrets[i].returnArray(secrets[i], secretType);
+					if(text.isEmpty()){  
+						//If the secret has all secrets removed from it
+						secretLabels[i].setText(finale);
+					}
+					else{
+						//If the secret has at least 1 secret in it
+						secretLabels[i].setText(secrets[i].returnArray(secrets[i], secretType));
+					}
+				}
 			}
 			break;
 			
 		//mage
 		case 2:
-			for(int i = 0; i < 7; i++){
-				if(secrets[0].magearray[i].TriggerArray[trigger]){
-					secrets[0].remove(secrets[0], i, 2);
+			//Removes the secrets from secrets' secretarrays if they are already set/valid
+			for(int i=0; i<5; i++){ //5 secretarrays in secrets
+				for(int j=0; j<7;j++){  //5 secrets in secretarray for mage
+					if(!(secretLabels[i].getText().equals("---"))){ //If secretLabel's label is set
+						if(secrets[i].magearray[j].TriggerArray[trigger]){ //If secret's trigger is true
+							secrets[i].remove(secrets[i], j, 2);  //2 for mage
+						}						
+					}
 				}
 			}
-			text = secrets[0].returnArray(secrets[0], secretType);
-			if(text.isEmpty()){
-				secretLabels[0].setText(finale);
-			}
-			else{
-				secretLabels[0].setText(secrets[0].returnArray(secrets[0], secretType));
+			//Sets the text for the JLabels in secretLabels
+			for(int i=0; i<5; i++){ //5 secretarrays and 5 secretLabels
+				if(!(secretLabels[i].getText().equals("---"))){ 
+					//If the secret's corresponding's JLabel is set
+					text = secrets[i].returnArray(secrets[i], secretType);
+					if(text.isEmpty()){  
+						//If the secret has all secrets removed from it
+						secretLabels[i].setText(finale);
+					}
+					else{
+						//If the secret has at least 1 secret in it
+						secretLabels[i].setText(secrets[i].returnArray(secrets[i], secretType));
+					}
+				}
 			}
 			break;
 			
 		//paladin
 		case 3:
-			for(int i = 0; i < 5; i++){
-				if(secrets[0].pallyarray[i].TriggerArray[trigger]){
-					secrets[0].remove(secrets[0], i, 3);
-				}	
+			//Removes the secrets from secrets' secretarrays if they are already set/valid
+			for(int i=0; i<5; i++){ //5 secretarrays in secrets
+				for(int j=0; j<5;j++){  //5 secrets in secretarray for pally
+					if(!(secretLabels[i].getText().equals("---"))){ //If secretLabel's label is set
+						if(secrets[i].pallyarray[j].TriggerArray[trigger]){ //If secret's trigger is true
+							secrets[i].remove(secrets[i], j, 3);  //3 for pally
+						}						
+					}
+				}
 			}
-			text = secrets[0].returnArray(secrets[0], secretType);
-			if(text.isEmpty()){
-				secretLabels[0].setText(finale);
-			}
-			else{
-				secretLabels[0].setText(secrets[0].returnArray(secrets[0], secretType));
+			//Sets the text for the JLabels in secretLabels
+			for(int i=0; i<5; i++){ //5 secretarrays and 5 secretLabels
+				if(!(secretLabels[i].getText().equals("---"))){ 
+					//If the secret's corresponding's JLabel is set
+					text = secrets[i].returnArray(secrets[i], secretType);
+					if(text.isEmpty()){  
+						//If the secret has all secrets removed from it
+						secretLabels[i].setText(finale);
+					}
+					else{
+						//If the secret has at least 1 secret in it
+						secretLabels[i].setText(secrets[i].returnArray(secrets[i], secretType));
+					}
+				}
 			}
 			break;
+			
 		}
 	}	
 	
 	//Adds a new secret to secrets and sets its corresponding JLabel in secretLabels 
 	public void addSecret(SecretArray[] secrets, int secretType, JLabel[] secretLabels){
 		for(int i=0; i<5; i++){
-			if(secretLabels[i].getText() == "---"){
+			if(secretLabels[i].getText() == "---"){  //Searches for next empty space in secretLabels
 				SecretArray newSecret = new SecretArray(secretType);
 				secretLabels[i].setText(newSecret.returnArray(newSecret,secretType));
 				secrets[i] = newSecret;
-				break;
+				break;  //Breaks after creating a single next secret
 			}
 		}
 		
