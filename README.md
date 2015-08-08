@@ -1,3 +1,6 @@
+#HearthStone Secret Tracker
+Authors:  Danny Peng & Roy Joo 
+
 1	M->EM
 2 	M - > EH
 3	H - > EM
