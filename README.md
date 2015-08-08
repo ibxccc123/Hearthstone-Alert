@@ -1,6 +1,8 @@
 #HearthStone Secret Tracker
 Authors:  Danny Peng & Roy Joo 
 
+A Java application that can eliminate possible enemy secrets whenever an action is performed.  
+
 1	M->EM
 2 	M - > EH
 3	H - > EM
